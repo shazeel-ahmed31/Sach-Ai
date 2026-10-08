@@ -1,0 +1,11 @@
+{
+  "name": "sach-ai-ml-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sach-AI Python inference microservice (FastAPI + PyTorch): ResNeXt+LSTM, face-swap artifact check, Community Forensics ViT, CrossEfficientViT",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs"
+  }
+}

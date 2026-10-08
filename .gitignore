@@ -1,0 +1,50 @@
+# Dependencies and generated builds
+node_modules/
+.venv/
+venv/
+dist/
+coverage/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime data and logs
+*.log
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+/server/data/
+/server/temp/
+/work/
+/outputs/
+/transfer/
+/ml-service/temp/
+/ml-service/cevit/efficient_net/logs
+
+# Model weights stay local
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.h5
+*.safetensors
+
+# Local upstream reference checkout
+/.ml-repo/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+venv/ 
+node_modules/ 
+.env 

@@ -1,0 +1,17 @@
+SACH-AI TRANSFER COPY
+
+Extract this ZIP onto a computer, then open Sach-AI/README.md for setup.
+Install Node.js 22.13+ and Python 3.11-3.13, then run from the project folder:
+
+    npm.cmd ci
+    npm.cmd --prefix server ci
+    python -m venv ml-service/.venv
+    ml-service\.venv\Scripts\python.exe -m pip install -r ml-service/requirements.txt
+    npm.cmd run dev:all
+
+Installed libraries, builds, caches, logs, temporary uploads, and the local
+upstream reference checkout were omitted to make copying faster.
+A phone can store this ZIP; running the application requires a computer.
+
+This SOURCE copy also omits models, local settings, saved accounts/reports,
+and Git history. Follow README.md to create server/.env and obtain models.

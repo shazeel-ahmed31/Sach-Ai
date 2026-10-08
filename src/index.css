@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@config "../tailwind.config.ts";
+
+/* Sach AI Forensic Lab Design System
+   All colors HSL. Deep Navy, Emerald (Truth), Alert Red.
+*/
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 222 47% 7%;
+    --foreground: 180 20% 96%;
+
+    --card: 222 45% 10%;
+    --card-foreground: 180 20% 96%;
+
+    --popover: 222 45% 10%;
+    --popover-foreground: 180 20% 96%;
+
+    /* Brand: Emerald = Truth */
+    --primary: 158 76% 48%;
+    --primary-foreground: 222 47% 7%;
+    --primary-glow: 158 90% 60%;
+
+    /* Deep navy secondary */
+    --secondary: 222 40% 14%;
+    --secondary-foreground: 180 20% 96%;
+
+    --muted: 222 30% 16%;
+    --muted-foreground: 215 16% 65%;
+
+    /* Accent: Cyan/teal HUD */
+    --accent: 188 90% 50%;
+    --accent-foreground: 222 47% 7%;
+
+    /* Alert: Fake / High Risk */
+    --destructive: 358 78% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning / medium risk */
+    --warning: 38 95% 58%;
+    --warning-foreground: 222 47% 7%;
+
+    --border: 222 35% 18%;
+    --input: 222 35% 18%;
+    --ring: 158 76% 48%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(ellipse at top, hsl(222 50% 12%) 0%, hsl(222 47% 7%) 60%);
+    --gradient-emerald: linear-gradient(135deg, hsl(158 76% 48%), hsl(180 80% 45%));
+    --gradient-alert: linear-gradient(135deg, hsl(358 78% 58%), hsl(20 90% 55%));
+    --gradient-grid:
+      linear-gradient(hsl(158 76% 48% / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(158 76% 48% / 0.06) 1px, transparent 1px);
+
+    /* Shadows / glows */
+    --shadow-glow: 0 0 40px hsl(158 90% 55% / 0.35);
+    --shadow-alert: 0 0 40px hsl(358 78% 58% / 0.4);
+    --shadow-elegant: 0 20px 60px -20px hsl(158 76% 30% / 0.4);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 222 45% 10%;
+    --sidebar-foreground: 180 20% 96%;
+    --sidebar-primary: 158 76% 48%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 222 40% 14%;
+    --sidebar-accent-foreground: 180 20% 96%;
+    --sidebar-border: 222 35% 18%;
+    --sidebar-ring: 158 76% 48%;
+  }
+
+  /* App is dark-first; keep .dark same as root */
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 180 20% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image: var(--gradient-grid);
+    background-size: 40px 40px;
+  }
+
+  .text-gradient-emerald {
+    background: var(--gradient-emerald);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-emerald {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-alert {
+    box-shadow: var(--shadow-alert);
+  }
+
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.15) 50%,
+      transparent 100%
+    );
+    animation: scan 3s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+}
